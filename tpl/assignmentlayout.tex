@@ -1,0 +1,57 @@
+% Cabeçalho e rodapé da primeira página %
+\fancypagestyle{capa}{
+    \fancyhf{}
+    \setlength{\headheight}{1.5cm}
+    \setlength{\headsep}{1cm}
+    \renewcommand{\headrulewidth}{0pt}
+    \iflogoccm
+    \fancyhead[L]{\includesvg[height=1cm]{tpl/ccm_logo.svg}}
+    \fi
+    \iflogofapesp
+    \fancyhead[L]{\includesvg[height=1.15cm]{tpl/fapesp_logo.svg}}
+    \fi
+    \fancyhead[R]{\includesvg[height=1.15cm]{tpl/usp_logo.svg}}
+}
+
+% Cabeçalho e rodapé das páginas seguintes %
+\fancypagestyle{pagina}{
+    \fancyhf{}
+    \setlength{\headheight}{.6cm}
+    \setlength{\headsep}{1cm}
+    \setlength{\footskip}{1cm}
+    \renewcommand{\headrulewidth}{1.5pt}
+    \fancyhead[L]{\thistitle}
+    \fancyhead[R]{\thiscourse}
+    \fancyfoot[C]{\thepage}
+}
+
+% Título %
+\renewcommand{\maketitle}{
+    \thispagestyle{capa}
+    
+    \begin{center}
+        {\scshape
+        {\large \thisinstitute} \\
+        \thisdepartment
+        }
+        
+        \vspace{.5cm}
+        \hrule height 1.5pt
+        \vspace{.5cm}
+        
+        {\huge \hili{\thistitle}} \\[.25cm]
+        {\large \slshape \thisstudent \quad\hili{$\bullet$}\quad \thisid}
+        
+        \vspace{.5cm}
+        \hrule height 1.5pt
+        \vspace{.5cm}
+
+        {\bfseries \thiscode} \, \thiscourse \\
+        \thisprofessor \\
+        \thisdate
+    \end{center}
+        
+    \vspace{.25cm}
+    
+    \pagestyle{pagina}
+}

@@ -1,0 +1,138 @@
+\documentclass[red, ccm, assignment]{templateccm}
+
+% TÍTULO
+\title{Título}              % Somente no modo "assignment" (padrão)
+\course{Disciplina}
+\code{XXX0000}
+\professor{Prof. Nome do Professor}
+
+\student{Nome Completo}
+\id{00000000}
+\class{Turma XX}            % Somente no modo "notebook"
+
+\date{\today}               % Somente no modo "assignment" (padrão)
+\term{Xº semestre de 20XX}  % Somente no modo "notebook"
+
+\institute{Instituto}
+\department{Departamento}
+
+% COMANDOS PERSONALIZADOS
+% \addbibresource{refs.bib}
+
+% INÍCIO DO DOCUMENTO
+\begin{document}
+
+\maketitle
+% \tableofcontents
+% \pagebreak
+
+\section{Texto}
+
+\lipsum[1-2]
+
+\subsection{Listas}
+
+\begin{itemize}
+    \item \lipsum[3-3]
+    \item \lipsum[4-4]
+    \begin{enumerate}
+        \item \lipsum[5-5]
+        \item \lipsum[6-6]
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Exercícios}
+
+\begin{exercise}
+    \item \lipsum[7-7]
+    \item \lipsum[8-8]
+    \item ~
+    \begin{exercise}
+        \item \lipsum[9-9]
+        \item \lipsum[10-10]
+    \end{exercise}
+\end{exercise}
+
+\section{Matemática}
+
+\begin{gather*}
+    \NN = \{ 1, 2, 3, \dots \} \\
+    \mathcal{X} = \{ x_1, x_2, \dots, x_N \} \\
+    \int\limits_a^b {\frac{d}{dx} F(x) \, dx}  = F(b) - F(a) \\
+    \int u \frac{dv}{dx} \, dx = uv - \int \frac{du}{dx} v \, dx \\
+    \Gamma(x) = \int\limits_0^\infty s^{x - 1} e^{-s} \, ds \\
+    -\frac{\hbar^2}{2m}\frac{d^2 \psi(x)}{dx^2} + U(x)\psi (x) = E \psi(x)
+\end{gather*}
+
+\section{Código}
+
+\begin{minted}{python}
+# Python program for implementation of Quicksort Sort
+
+# This implementation utilizes pivot as the last element in the nums list
+# It has a pointer to keep track of the elements smaller than the pivot
+# At the very end of partition() function, the pointer is swapped with the pivot
+# to come up with a "sorted" nums relative to the pivot
+
+
+# Function to find the partition position
+def partition(array, low, high):
+
+    # choose the rightmost element as pivot
+    pivot = array[high]
+
+    # pointer for greater element
+    i = low - 1
+
+    # traverse through all elements
+    # compare each element with pivot
+    for j in range(low, high):
+        if array[j] <= pivot:
+
+            # If element smaller than pivot is found
+            # swap it with the greater element pointed by i
+            i = i + 1
+
+            # Swapping element at i with element at j
+            (array[i], array[j]) = (array[j], array[i])
+
+    # Swap the pivot element with the greater element specified by i
+    (array[i + 1], array[high]) = (array[high], array[i + 1])
+
+    # Return the position from where partition is done
+    return i + 1
+
+# function to perform quicksort
+
+
+def quickSort(array, low, high):
+    if low < high:
+
+        # Find pivot element such that
+        # element smaller than pivot are on the left
+        # element greater than pivot are on the right
+        pi = partition(array, low, high)
+
+        # Recursive call on the left of pivot
+        quickSort(array, low, pi - 1)
+
+        # Recursive call on the right of pivot
+        quickSort(array, pi + 1, high)
+
+
+data = [1, 7, 4, 1, 10, 9, -2]
+print("Unsorted Array")
+print(data)
+
+size = len(data)
+
+quickSort(data, 0, size - 1)
+
+print('Sorted Array in Ascending Order:')
+print(data)
+\end{minted}
+
+% \pagebreak
+% \printbibliography[header=bibintoc]
+
+\end{document}
