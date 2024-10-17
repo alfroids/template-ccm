@@ -14,7 +14,7 @@
 
 % IDENTIFICAÇÃO
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{templateccm}[2024/09/27 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
+\ProvidesClass{templateccm}[2024/10/17 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
 
 
 % DECLARAÇÕES PRELIMINARES
@@ -84,14 +84,14 @@
 % configuração do layout %
 \RequirePackage[a4paper, top=3cm, bottom=3cm, left=2cm, right=2cm]{geometry}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{fancyhdr}               % Customizar o cabeçalho e o rodapé
-\RequirePackage{multicol}               % Formatar o texto em múltiplas colunas
-\RequirePackage{setspace}               % Configurar o espaçamento entre linhas
-\RequirePackage{caption}                % Customizar as legendas
-\RequirePackage{subcaption}             % Inserir subfiguras e subtabelas
-\RequirePackage[brazilian]{babel}       % Traduzir alguns comandos automáticos
-\RequirePackage{fvextra, csquotes}      % Inserir citações e aspas
-\RequirePackage[style=nature]{biblatex} % Gerenciar a bibliografia
+\RequirePackage{fancyhdr}                            % Customizar o cabeçalho e o rodapé
+\RequirePackage{multicol}                            % Formatar o texto em múltiplas colunas
+\RequirePackage{setspace}                            % Configurar o espaçamento entre linhas
+\RequirePackage{caption}                             % Customizar as legendas
+\RequirePackage{subcaption}                          % Inserir subfiguras e subtabelas
+\RequirePackage[brazilian]{babel}                    % Traduzir alguns comandos automáticos
+\RequirePackage{fvextra, csquotes}                   % Inserir citações e aspas
+\RequirePackage[style=nature, sorting=nyt]{biblatex} % Gerenciar a bibliografia
 
 % formatos especiais %
 \RequirePackage{booktabs, colortbl}     % Criar tabelas personalizadas
@@ -157,7 +157,7 @@
 }
 
 % estilo dos links %
-% TODO
+\definecolor{linkcolor}{RGB}{6,39,203}
 \hypersetup{
     colorlinks=true,
     % linkcolor=.,
@@ -167,7 +167,7 @@
     % menucolor=.,
     % runcolor=.,
     % urlcolor=.,
-    allcolors=blue,
+    allcolors=linkcolor,
 }
 
 % espaçamento entre linhas %
