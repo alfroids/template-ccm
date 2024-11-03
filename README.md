@@ -13,4 +13,4 @@ A classe `templateccm` foi feita para ser usada em listas de exercícios, relat�
  - `logo` (opcional): `ccm`, `fapesp` -- se não especificada, nenhum logo será incluído no cabeçalho da capa.
  - `mode` (opcional): `assignment` (padrão), `notebook`.
 
-A classe `slideccm` foi feita para ser usada em apresentações de slides. A única opção da classe é `color`, que pode assumir os mesmos valores especificados acima.
+A classe `slideccm` foi feita para ser usada em apresentações de slides. As opções da classe são `color` e `logo`, que funcionam das mesmas maneiras especificadas acima.

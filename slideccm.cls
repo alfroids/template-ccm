@@ -14,7 +14,7 @@
 
 % IDENTIFICAÇÃO
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{slideccm}[2024/09/27 Template temático do CCM-USP para slides e apresentações]
+\ProvidesClass{slideccm}[2024/11/03 Template temático do CCM-USP para slides e apresentações]
 
 
 % DECLARAÇÕES PRELIMINARES
@@ -31,6 +31,14 @@
 \DeclareOption{green}{\definecolor{maincolor}{RGB}{4,190,81}}
 \DeclareOption{blue}{\definecolor{maincolor}{RGB}{0,120,215}}
 
+% Escolha do logo %
+\newif\iflogoccm
+\newif\iflogofapesp
+\logoccmfalse
+\logofapespfalse
+\DeclareOption{ccm}{\logoccmtrue\logofapespfalse}
+\DeclareOption{fapesp}{\logofapesptrue\logoccmfalse}
+
 % Outras opções
 \PassOptionsToClass{aspectratio=32}{beamer}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
@@ -43,12 +51,12 @@
 % PACOTES
 \RequirePackage{graphicx}
 \RequirePackage{svg}
-\RequirePackage[sfdefault, mono, proportional, scaled=1.11]{notomath}
+\RequirePackage[vvarbb, mono, pf, scale=1.11]{notomath}
 \RequirePackage[T1]{fontenc}
 
 
 % ESTILO
-\usefonttheme[onlymath]{serif}
+\usefonttheme[onlymath]{serif} % TODO: fix sans greek letters in math mode
 
 \setbeamercolor{frametitle}{fg=maincolor,bg=white}
 \setbeamercolor{title}{fg=maincolor,bg=white}
@@ -56,16 +64,46 @@
 \setbeamercolor{local structure}{fg=maincolor}
 \setbeamercolor{footline}{fg=maincolor, bg=white}
 \setbeamercolor{item projected}{fg=maincolor,bg=white}
+\setbeamercolor{default}{fg=black,bg=white}
 
 \setbeamerfont{frametitle}{series=\bfseries}
 \setbeamerfont{title}{series=\bfseries}
 \setbeamerfont{section}{series=\bfseries,size=\huge}
+\setbeamerfont{institute}{series=\normalfont}
+\setbeamerfont{date}{series=\normalfont}
 
 \setbeamertemplate{itemize item}{\color{maincolor}$\bullet$}
 \setbeamertemplate{itemize subitem}{\color{maincolor}\scriptsize{$\circ$}}
 
 
 % LAYOUT
+\setbeamertemplate{title page}{
+    \begin{center}
+        \includesvg[height=1.4\baselineskip]{tpl/usp_logo.svg}
+        \vfill
+        \hrule height 1.pt
+        \vspace{.5cm}
+        \usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle \\
+        \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle \\
+        \usebeamercolor[fg]{default}
+        \vspace{.5cm}
+        \hrule height 1.pt
+        \vspace{.5cm}
+        \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor \\
+        \smallskip
+        \usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute \\
+        \smallskip
+        \usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate \\
+        \vfill
+        \iflogoccm
+        \includesvg[height=1.4\baselineskip]{tpl/ccm_logo.svg}
+        \fi
+        \iflogofapesp
+        \includesvg[height=1.4\baselineskip]{tpl/fapesp_logo.svg}
+        \fi
+    \end{center}
+}
+
 \AtBeginSection[]{
     \begin{frame}
     \vfill
@@ -76,8 +114,6 @@
     \vfill
     \end{frame}
 }
-
-\titlegraphic{\includesvg[height=1.2\baselineskip]{img/logo-cm.svg}}
 
 
 % EXTRA
