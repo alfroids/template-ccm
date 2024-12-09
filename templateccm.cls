@@ -14,7 +14,7 @@
 
 % IDENTIFICAÇÃO
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{templateccm}[2024/10/17 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
+\ProvidesClass{templateccm}[2024/12/09 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
 
 
 % DECLARAÇÕES PRELIMINARES
@@ -100,7 +100,6 @@
 \RequirePackage{graphicx}               % Importar imagens
 \RequirePackage{svg}                    % Importar imagens vetorizadas
 \RequirePackage{hyperref}               % Adicionar hyperlinks
-\RequirePackage{fancyvrb}               % Importar arquivos de texto
 \RequirePackage{minted}                 % Importar e formatar código
 \RequirePackage{tikz}                   % Criar diagramas e elementos gráficos
 
