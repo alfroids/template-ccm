@@ -14,7 +14,7 @@
 
 % IDENTIFICAÇÃO
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{templateccm}[2024/12/09 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
+\ProvidesClass{templateccm}[2025/08/14 Template temático do CCM-USP para provas, listas de exercícios, cadernos e relatórios]
 
 
 % DECLARAÇÕES PRELIMINARES
@@ -30,7 +30,6 @@
 
 \newcommand{\student}[1]{\newcommand{\thisstudent}{#1}}
 \newcommand{\id}[1]{\newcommand{\thisid}{#1}}
-\newcommand{\class}[1]{\newcommand{\thisclass}{#1}}
 
 \renewcommand{\date}[1]{\newcommand{\thisdate}{#1}}
 \newcommand{\term}[1]{\newcommand{\thisterm}{#1}}
