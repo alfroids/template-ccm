@@ -20,6 +20,7 @@
 % DECLARAÇÕES PRELIMINARES
 % Pacotes principais
 \RequirePackage{xcolor}  % Criar cores pré-definidas
+\RequirePackage{etoolbox}  % Comparação de strings
 
 % Parâmetros principais
 \renewcommand{\title}[1]{\newcommand{\thistitle}{#1}}
@@ -50,12 +51,12 @@
 \DeclareOption{blue}{\definecolor{maincolor}{RGB}{0,120,215}}
 
 % Escolha do logo %
-\newif\iflogoccm
-\newif\iflogofapesp
-\logoccmfalse
-\logofapespfalse
-\DeclareOption{ccm}{\logoccmtrue\logofapespfalse}
-\DeclareOption{fapesp}{\logofapesptrue\logoccmfalse}
+\newif\iflogooption
+\logooptionfalse
+\def\selectedlogo{none}
+
+\DeclareOption{ccm}{\logooptiontrue\def\selectedlogo{ccm}}
+\DeclareOption{fapesp}{\logooptiontrue\def\selectedlogo{fapesp}}
 
 % Escolha de layout %
 \DeclareOption{assignment}{\renewcommand{\layoutfile}{tpl/assignmentlayout.tex}}  % Padrão
